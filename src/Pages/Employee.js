@@ -153,7 +153,6 @@ const Employee = () => {
                 Add Employee
               </Button>
             </div>
-
             {loading ? (
               <div
                 className="d-flex justify-content-center align-items-center"
@@ -163,7 +162,7 @@ const Employee = () => {
                   <span className="visually-hidden">Loading...</span>
                 </div>
               </div>
-            ) : (
+            ) : employeesData.length > 0 ? (
               <Table className="mt-3" bordered>
                 <thead>
                   <tr>
@@ -184,6 +183,13 @@ const Employee = () => {
                   ))}
                 </tbody>
               </Table>
+            ) : (
+              <div
+                className="d-flex justify-content-center align-items-center"
+                style={{ height: "60vh", fontSize: "1.5rem", color: "#555" }}
+              >
+                No Employees found!
+              </div>
             )}
           </Col>
         </Row>
